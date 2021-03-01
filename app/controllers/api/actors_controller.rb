@@ -4,6 +4,9 @@ class Api::ActorsController < ApplicationController
     render "actor.json.jb"
   end
 
-  def repeat
+  def choose_actor
+    @input = params[:actor]
+    @actor = Actor.find(@input)
+    render "actor.json.jb"
   end
 end

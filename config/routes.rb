@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     get "/actors_all" => "actors#individual_actor"
     get "/individual_movie_path" => "movies#individual_movie"
     get "/all_movies_path" => "movies#all_movie"
+    get "choose_actor/:actor" => "actors#choose_actor"
   end
 end
