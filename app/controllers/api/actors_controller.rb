@@ -1,24 +1,41 @@
 class Api::ActorsController < ApplicationController
-  def individual_actor
-    @actor = Actor.first
+  def index
+    @actor = Actor.all
     render "actor.json.jb"
   end
 
-  def choose_actor_segment
-    @input = params[:actor]
+  def show
+    @input = params[:id]
     @actor = Actor.find(@input)
     render "actor.json.jb"
   end
 
-  def choose_actor_query
-    @input = params["my_message"]
-    @actor = Actor.find(@input)
+  def create
+    @actor = Actor.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      known_for: params[:known_for],
+    )
+    @actor.save
     render "actor.json.jb"
   end
 
-  def choose_actor_body
-    input = params[:input]
+  def update
+    @input = params[:id]
+    @actor = Actor.find(@input)
+    {
+      first_name: params[:first_name] || @actor.first_name,
+      last_name: params[:last_name] || @actor.last_name,
+      known_for: params[:known_for] || @actor.known_for,
+    }
+    @actor.save
+    render json: { message: "actor updated" }
+  end
+
+  def destroy
+    input = params[:id]
     @actor = Actor.find(input)
-    render "actor.json.jb"
+    @actor.delete
+    render json: { message: "actor deleted" }
   end
 end
