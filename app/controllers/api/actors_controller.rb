@@ -1,13 +1,13 @@
 class Api::ActorsController < ApplicationController
   def index
     @actor = Actor.all
-    render "actor.json.jb"
+    render "actor_index.json.jb"
   end
 
   def show
     @input = params[:id]
     @actor = Actor.find(@input)
-    render "actor.json.jb"
+    render "actor_show.json.jb"
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::ActorsController < ApplicationController
       known_for: params[:known_for],
     )
     @actor.save
-    render "actor.json.jb"
+    render "actor_show.json.jb"
   end
 
   def update
@@ -29,7 +29,8 @@ class Api::ActorsController < ApplicationController
       known_for: params[:known_for] || @actor.known_for,
     }
     @actor.save
-    render json: { message: "actor updated" }
+    # render json: { message: "actor updated" }
+    render "actor_show.json.jb"
   end
 
   def destroy

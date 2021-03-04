@@ -1,13 +1,13 @@
 class Api::MoviesController < ApplicationController
   def index
     @movie = Movie.all
-    render "movie.json.jb"
+    render "movie_index.json.jb"
   end
 
   def show
     @input = params[:id]
     @movie = Movie.find(@input)
-    render "movie.json.jb"
+    render "movie_show.json.jb"
   end
 
   def create
@@ -18,7 +18,7 @@ class Api::MoviesController < ApplicationController
       plot: params[:plot],
     )
     @movie.save
-    render "movie.json.jb"
+    render "movie_show.json.jb"
   end
 
   def update
@@ -31,7 +31,8 @@ class Api::MoviesController < ApplicationController
       plot: params[:plot] || @movie.plot,
     }
     @movie.save
-    render json: { message: "movie updated" }
+    # render json: { message: "movie updated" }
+    render "movie_show.json.jb"
   end
 
   def destroy
