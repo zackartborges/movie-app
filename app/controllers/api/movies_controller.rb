@@ -16,6 +16,8 @@ class Api::MoviesController < ApplicationController
       title: params[:title],
       year: params[:year],
       plot: params[:plot],
+      director: params[:director],
+      english: params[:english],
     )
     @movie.save
     render "movie_show.json.jb"
@@ -29,10 +31,13 @@ class Api::MoviesController < ApplicationController
       title: params[:title] || @movie.title,
       year: params[:year] || @movie.year,
       plot: params[:plot] || @movie.plot,
+      director: params[:director] || @movie.director,
+      english: params[:english] || @movie.english,
     }
     @movie.save
-    # render json: { message: "movie updated" }
+
     render "movie_show.json.jb"
+    #when create, why is english null.. questions to future self
   end
 
   def destroy
