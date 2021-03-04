@@ -24,15 +24,13 @@ class Api::ActorsController < ApplicationController
   end
 
   def update
-    @input = params[:id]
-    @actor = Actor.find(@input)
-    {
-      first_name: params[:first_name] || @actor.first_name,
-      last_name: params[:last_name] || @actor.last_name,
-      known_for: params[:known_for] || @actor.known_for,
-      gender: params[:gender] || @actor.gender,
-      age: params[:age] || @actor.age,
-    }
+    @actor = Actor.find_by(id: params[:id])
+    @actor.first_name = params[:first_name] || @actor.first_name
+    @actor.last_name = params[:last_name] || @actor.last_name
+    @actor.known_for = params[:known_for] || @actor.known_for
+    @actor.gender = params[:gender] || @actor.gender
+    @actor.age = params[:age] || @actor.age
+
     @actor.save
     render "actor_show.json.jb"
   end
