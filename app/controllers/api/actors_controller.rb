@@ -19,8 +19,11 @@ class Api::ActorsController < ApplicationController
       age: params[:age],
 
     )
-    @actor.save
-    render "actor_show.json.jb"
+    if @actor.save
+      render "actor_show.json.jb"
+    else
+      render json: { errors: @actor.errors.full_messages }, status: 406
+    end
   end
 
   def update
