@@ -31,9 +31,10 @@ class Api::MoviesController < ApplicationController
     @movie.plot = params[:plot] || @movie.plot
     @movie.director = params[:director] || @movie.director
     @movie.english = params[:english] || @movie.english
-    @movie.save
-
-    render "movie_show.json.jb"
+    #sets happy/sad path
+    if @movie.save
+      render "movie_show.json.jb"
+    else render json: { errors: @movie.errors.full_messages }, status: 406     end
     #when create, why is english null.. questions to future self
   end
 
