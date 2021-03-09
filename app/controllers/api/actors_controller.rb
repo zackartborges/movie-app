@@ -1,9 +1,4 @@
 class Api::ActorsController < ApplicationController
-  group :development, :test do
-    gem 'ffaker'
-  end
-  
-  end
   def index
     @actor = Actor.order(age: :desc)
     render "actor_index.json.jb"
@@ -52,5 +47,4 @@ class Api::ActorsController < ApplicationController
     @actor.delete
     render json: { message: "actor deleted" }
   end
-
 end

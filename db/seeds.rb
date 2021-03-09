@@ -11,11 +11,4 @@
 # actor = Actor.create({ first_name: "Jim", last_name: "Carrey", known_for: "Bruce Almighty" })
 # movie = Movie.create ({ title: "One Flew Over the Cuckoo's Nest", year: 1979, plot: "A man decides to go to a mental hospital instead of prison, though he is not mentally challenged." })
 # movie = Movie.create ({ title: "Hereditary", year: 2018, plot: "This family just keeps getting crazier!" })
-require "faker"
-10.times do
-  Actor.create(
-    Faker::Name.first_name,
-    Faker::Name.last_name,
-    Faker::Movie.title
-  )
-end
+# require "faker"
