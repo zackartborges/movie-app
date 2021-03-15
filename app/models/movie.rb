@@ -6,4 +6,8 @@ class Movie < ApplicationRecord
   validates :director, presence: true
   validates :title, presence: true
   validates :year, presence: true
+
+  def genre_names
+    genre.name
+  end
 end
