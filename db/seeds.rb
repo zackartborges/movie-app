@@ -19,3 +19,25 @@
 # 20.times do
 #   Movie.create(title: FFaker::Movie.title, year: rand(1972..2020), plot: FFaker::Lorem.paragraph, director: FFaker::Name.name)
 # end
+
+# Genre.create(name: "thriller")
+# Genre.create(name: "romcom")
+# Genre.create(name: "horror")
+# Genre.create(name: "mystery")
+# Genre.create(name: "allegorical novel")
+# Genre.create(name: "historical")
+# Genre.create(name: "fantasy")
+# Genre.create(name: "crime")
+# Genre.create(name: "animation")
+# Genre.create(name: "western")
+# Genre.create(name: "children's")
+# 1	thriller	2021-03-14 22:56:01.845543	2021-03-14 22:56:01.845543
+# 2	romcom	2021-03-14 22:56:01.894179	2021-03-14 22:56:01.894179
+# 3	horror	2021-03-14 22:56:01.908556	2021-03-14 22:56:01.908556
+# 4	mystery	2021-03-14 22:56:01.911861	2021-03-14 22:56:01.911861
+# 5	allegorical novel	2021-03-15 01:02:52.334056	2021-03-15 01:02:52.334056
+# 6	historical	2021-03-15 01:02:52.339398	2021-03-15 01:02:52.339398
+# 7	fantasy	2021-03-15 01:02:52.35449	2021-03-15 01:02:52.35449
+# 8	crime	2021-03-15 01:02:52.358494	2021-03-15 01:02:52.358494
+# 9	animation	2021-03-15 01:02:52.362486	2021-03-15 01:02:52.362486
+# 10	western	2021-03-15 01:02:52.365553	2021-03-15 01:02:52.365553
