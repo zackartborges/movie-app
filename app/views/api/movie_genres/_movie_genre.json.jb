@@ -1,0 +1,7 @@
+{
+  # title: movie.title,
+  title: @movie_genre.movie.title,
+  genre: @movie_genre.movie.genres.name,
+  movie_id: @movie_genre.movie_id,
+  genre_id: @movie_genre.genre_id,
+}
