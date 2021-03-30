@@ -1,8 +1,7 @@
 class Api::MoviesController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
-
+  # before_action :authenticate_admin, except: [:index, :show]
   def index
-    @movie = Movie.where("english" => true)
+    @movie = Movie.all
     render "movie_index.json.jb"
   end
 
@@ -37,7 +36,6 @@ class Api::MoviesController < ApplicationController
     if @movie.save
       render "movie_show.json.jb"
     else render json: { errors: @movie.errors.full_messages }, status: 406     end
-    #when create, why is english null.. questions to future self
   end
 
   def destroy
